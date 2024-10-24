@@ -8,6 +8,7 @@ VelgTidspunkt(Velg tidspunkt og dato)
 VelgSete(Velg sete)
 VelgTypeBillett(Velg type billett - vr eller vanlig)
 BekreftBestilling(Bekreft bestilling)
+AntallBilletter(Velg antall billetter)
 Betal(Fyll inn betalingsinnformasjon)
 Kvittering(Ny billett)
 
@@ -28,7 +29,8 @@ RiktigTidspunkt --> |NEI|VelgTidspunkt
 VelgSete --> RiktigSete
 RiktigSete --> |JA|VelgTypeBillett
 RiktigSete --> |NEI|VelgSete
-VelgTypeBillett --> RiktigBillett
+VelgTypeBillett --> AntallBilletter
+AntallBilletter --> RiktigBillett
 RiktigBillett --> |JA|BekreftBestilling
 RiktigBillett --> |NEI|VelgTypeBillett
 BekreftBestilling --> RiktigOrdre
@@ -37,5 +39,6 @@ RiktigOrdre --> |NEI|Start
 Betal --> BetalingGodkjent
 BetalingGodkjent --> |JA|Kvittering
 BetalingGodkjent --> |NEI|Betal
+Kvittering --> Slutt
 
 :::
